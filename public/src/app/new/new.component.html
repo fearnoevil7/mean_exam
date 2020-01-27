@@ -1,0 +1,48 @@
+<p>new works!</p>
+<p>pets works!</p>
+<!-- <a [routerLink]="['/pets/']" ></a> -->
+<div *ngIf="my_errors" >
+    <p>{{my_errors.name}}</p>
+    <p>{{my_errors.message}}</p>
+    <p>{{my_errors.unique}}</p>
+</div>
+<div>{{unique_error.unique}}</div>
+<br>
+<form (submit)="addPet()" #form="ngForm" >
+    <span>Pet Name: </span><input
+    type="text"
+    name="name"
+    required
+    minlength="3"
+    [(ngModel)]="newPet.name"
+    #name="ngModel">
+    <p [hidden]="name.pristine || name.valid" >
+        Pet name is required and needs to have a length of atleast 3 characters
+    </p>
+    <span>Pet Type: </span><input
+    type="text"
+    name="type"
+    required
+    minlength="3"
+    [(ngModel)]="newPet.type"
+    #type="ngModel">
+    <p [hidden]="type.pristine || type.valid">
+        Pet type is required and needs to have a length of atleast 3 characters
+    </p>
+    <span>Pet Description</span><input
+    type="text"
+    name="description"
+    required
+    min="3"
+    [(ngModel)]="newPet.description"
+    #description="ngModel">
+    <p [hidden]="description.pristine || description.valid">
+        Description is required and needs to have a length of atleast 3 characters
+    </p>
+    <span>Skills: </span>
+        <span>Skill 1: </span><input type="text" name="skill1" [(ngModel)]="newPet.skill1">
+        <span>Skill 2: </span><input type="text" name="skill2" [(ngModel)]="newPet.skill2">
+        <span>Skill 3: </span><input type="text" name="skill3" [(ngModel)]="newPet.skill3">
+        <button type="submit"  class="btn btn-success" [disabled]="!form.valid">Add Pet</button>
+        <button type="button" class="btn btn-secondary" [routerLink]="['/']">Cancel</button>
+</form>

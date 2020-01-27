@@ -1,0 +1,15 @@
+<p>show works!</p>
+<p>show works!</p>
+{{ pet || json }}
+<h5>Details about {{pet.name}}</h5>
+<br>
+<span>Pet Type: </span><p>{{pet.type}}</p>
+<br>
+<span>Pet Description: </span><p>{{pet.description}}</p>
+<br>
+<span>Skills: </span><p>{{pet.skill1}}, {{pet.skill2}}, {{pet.skill3}}</p>
+<br>
+<span>Likes: {{pet.likes}}</span><p></p>
+<input type="button" (click)="processLike()" class="btn btn-primary" value="Like" *ngIf="submitted == false" >
+<br>
+<input type="button" (click)="sendToDestroy()" class="btn btn-warning" value="Adobpt Pet">
